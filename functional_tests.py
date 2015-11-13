@@ -45,6 +45,7 @@ class NewVisitorTest(unittest.TestCase):
             )
         
         # so she goes back to studying for 551.
+        self.fail("finish writing the FT!!")
 
 if __name__ == '__main__':
     unittest.main()
