@@ -6,7 +6,7 @@ import unittest
 class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Chrome()
         self.browser.implicitly_wait(3)
         
     def tearDown(self):
@@ -31,8 +31,18 @@ class NewVisitorTest(unittest.TestCase):
         button_text = self.browser.find_element_by_tag_name('button').text
         self.assertEqual(button_text, "MS Program of Study")
 
-        # She clicks on it, and something happens
-        self.fail("Finish the test!")
+        # She clicks on it, and is brought to another page with
+        # a form entitled "MS Program of Study", with a place to
+        # input her first name
+        button = self.browser.find_element_by_tag_name('button')
+        button.click()
+        self.assertIn('MS POS', self.browser.title)
+        ms_pos_form = self.browser.find_element_by_id('ms_pos_form')
+        
+        inputs = ms_pos_form.find_elements_by_tag_name('input')
+        self.assertTrue(
+            any(input.get_attribute('name') == 'first_name' for input in inputs)
+            )
         
         # so she goes back to studying for 551.
 

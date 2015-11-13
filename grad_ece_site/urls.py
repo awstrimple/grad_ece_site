@@ -19,5 +19,6 @@ from grad_forms import views
 
 urlpatterns = [
     url(r'^$', views.home_page, name='home'),
+    url(r'^ms_pos_form/', views.ms_pos_form, name="ms_pos_form"),
     url(r'^admin/', include(admin.site.urls)),
 ]
