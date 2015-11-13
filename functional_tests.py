@@ -1,5 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
+
 
 class NewVisitorTest(unittest.TestCase):
 
@@ -18,16 +20,20 @@ class NewVisitorTest(unittest.TestCase):
 
         self.browser.get('http://localhost:8000')
 
-        # She notices that the page title and header mention the ECE Graduate Program
+        # She notices that the page title and header mention
+        # the ECE Graduate Program
 
         self.assertIn('ECE Graduate Program', self.browser.title)
-        self.fail('Finish the test!')
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('ECE Graduate Program', header_text)
 
-        # Xiao sees that there are several links to various forms. One of them says
-        # 'PhD Program of Study Form', another says 'MS Program of Study Form', and
-        # another says 'MEng Program of Study Form'
+        # Xiao sees that there is a button labeled "MS Program of Study"
+        button_text = self.browser.find_element_by_tag_name('button').text
+        self.assertEqual(button_text, "MS Program of Study")
 
-        # She clicks on each of these in turn, and stuff happens. It's very satisfying,
+        # She clicks on it, and something happens
+        self.fail("Finish the test!")
+        
         # so she goes back to studying for 551.
 
 if __name__ == '__main__':
