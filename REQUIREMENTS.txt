@@ -1,3 +1,12 @@
+data==0.4
+decorator==4.0.4
 Django==1.8.5
 django-widget-tweaks==1.4.1
+funcsigs==0.4
+future==0.15.2
+latex==0.6.1
+selenium==2.48.0
+shutilwhich==1.1.0
+six==1.10.0
+tempdir==0.6
 wheel==0.24.0
