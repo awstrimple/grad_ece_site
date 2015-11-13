@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 
 def home_page(request):
-    return HttpResponse('<html><title>ECE Graduate Program</title></html>')
+    return render(request, 'grad_forms/home.html')
+
 
 
