@@ -27,9 +27,15 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('ECE Graduate Program', header_text)
 
-        # Xiao sees that there is a button labeled "MS Program of Study"
-        button_text = self.browser.find_element_by_tag_name('button').text
-        self.assertEqual(button_text, "MS Program of Study")
+        # Xiao sees so many buttons! There is one labeled "MS Program of Study",
+        # one labeled "PhD Program of Study", one labeled "MEng Program of Study",
+        # and one labeled "Independent Study Form"
+        buttons = self.browser.find_elements_by_tag_name('button')
+        button_texts = [button.text for button in buttons]
+        self.assertIn("MS Program of Study", button_texts)
+        self.assertIn("PhD Program of Study", button_texts)
+        self.assertIn("MEng Program of Study", button_texts)
+        self.assertIn("Independent Study Form", button_texts)
 
         # She clicks on it, and is brought to another page with
         # a form entitled "MS Program of Study", with a place to

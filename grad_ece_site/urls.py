@@ -20,5 +20,8 @@ from grad_forms import views
 urlpatterns = [
     url(r'^$', views.home_page, name='home'),
     url(r'^ms_pos_form/', views.ms_pos_form, name="ms_pos_form"),
+    url(r'^phd_pos_form/', views.phd_pos_form, name="phd_pos_form"),
+    url(r'^meng_pos_form/', views.meng_pos_form, name='meng_pos_form'),
+    url(r'^independent_study_form/', views.independent_study_form, name='independent_study_form'),
     url(r'^admin/', include(admin.site.urls)),
 ]

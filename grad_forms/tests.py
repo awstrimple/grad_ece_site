@@ -19,4 +19,3 @@ class HomePageTest(TestCase):
         expected_html = render_to_string('grad_forms/home.html')
 
         self.assertEqual(response.content.decode(), expected_html)
-
